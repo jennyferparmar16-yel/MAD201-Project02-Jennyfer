@@ -2,21 +2,18 @@
 // Name: Jennyfer Parmar
 // Student ID: A00201240
 // Date: 12/12/25
-// Description: Root layout using Stack navigation and global AppProvider.
+// Description: Bottom tabs navigation for Home, Transactions, and Settings.
 
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router";
 import React from "react";
-import { AppProvider } from "../src/context/AppContext";
 
-export default function RootLayout() {
+export default function TabsLayout() {
   return (
-    <AppProvider>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="splash" />
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="addTransaction" options={{ headerShown: true, title: "Add Transaction" }} />
-        <Stack.Screen name="reports" options={{ headerShown: true, title: "Reports" }} />
-      </Stack>
-    </AppProvider>
+    <Tabs screenOptions={{ headerShown: true }}>
+      <Tabs.Screen name="index" options={{ title: "Home" }} />
+      <Tabs.Screen name="transactions" options={{ title: "Transactions" }} />
+      <Tabs.Screen name="settings" options={{ title: "Settings" }} />
+      <Tabs.Screen name="explore" options={{ href: null }} /> 
+    </Tabs>
   );
 }
